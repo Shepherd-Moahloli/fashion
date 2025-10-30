@@ -1,31 +1,13 @@
-import { AppProps } from "$fresh/server.ts";
-import GlobalTags from "$store/components/GlobalTags.tsx";
-import Theme from "$store/sections/Theme/Theme.tsx";
+import { h } from "preact";
+import Router from "preact-router";
+import Home from "./Home";
+import NotFound from "./NotFound";
 
-const sw = () =>
-  addEventListener("load", () =>
-    navigator && navigator.serviceWorker &&
-    navigator.serviceWorker.register("/sw.js"));
-
-function App(props: AppProps) {
+export default function App() {
   return (
-    <>
-      {/* Include default fonts and css vars */}
-      <Theme />
-
-      {/* Include Icons and manifest */}
-      <GlobalTags />
-
-      {/* Rest of Preact tree */}
-      <props.Component />
-
-      {/* Include service worker */}
-      <script
-        type="module"
-        dangerouslySetInnerHTML={{ __html: `(${sw})();` }}
-      />
-    </>
+    <Router>
+      <Home path="/" />
+      <NotFound default />
+    </Router>
   );
 }
-
-export default App;

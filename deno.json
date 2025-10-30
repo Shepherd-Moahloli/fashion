@@ -23,5 +23,16 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
+  },
+  "env": {
+    "DECO_SITE_NAME": "HoodRevenge 25"
+  },
+  "deploy": {
+    "project": "ee436e28-7c53-461e-b17f-d2bec10f4ea7",
+    "exclude": [
+      "**/node_modules"
+    ],
+    "include": [],
+    "entrypoint": "main.ts"
   }
 }

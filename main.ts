@@ -3,6 +3,11 @@
 /// <reference lib="deno.ns" />
 /// <reference lib="esnext" />
 
+// Ensure DECO_SITE_NAME is set
+if (!Deno.env.get("DECO_SITE_NAME")) {
+  Deno.env.set("DECO_SITE_NAME", "HoodRevenge 25");
+}
+
 import { start } from "$fresh/server.ts";
 import plugins from "deco-sites/std/plugins/mod.ts";
 import partytownPlugin from "partytown/mod.ts";
